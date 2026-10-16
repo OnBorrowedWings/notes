@@ -1,0 +1,4 @@
+# GitHub Pages: alleen de pagina's, site.css en CNAME publiceren.
+# README en AI-instructies blijven in de repository, maar komen niet als pagina online.
+exclude:
+  - "*.md"

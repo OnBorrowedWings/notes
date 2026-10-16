@@ -1,0 +1,246 @@
+/* ==========================================================================
+   Publicatiehuis — site.css
+   Eén gedeelde stylesheet voor alle pagina's. Geen inline <style> in pagina's.
+
+   Kleurregel (PLAN.md §4, besluit B13 → adr/adr-012-kleur.md):
+   - Eén vaste accentkleur voor de hele site (links, kopjes, navigatie).
+   - De leesroute staat alleen in de tekst, niet in een kleur. Deze stylesheet
+     kent daarom geen leesroutes en hoeft niet te veranderen als die veranderen.
+   - Kleur is alleen voor het model, in de schema's. Elke kleur heeft overal
+     dezelfde betekenis: betekenis · ends · means · invloeden · toetsing.
+   - Labels voor beweringen (feit, afgeleide, hypothese, interpretatie) zijn
+     geen onderdeel van het model; ze verschillen in vorm, niet in kleur.
+   - Deze stylesheet wordt voorlopig gedeeld door publicatiehuis en notes,
+     als kopie in elke repository.
+   ========================================================================== */
+
+:root{
+  /* basis */
+  --ground:#F3F5F2; --surface:#FFFFFF; --ink:#18221F; --muted:#56635E; --line:#D4DCD7;
+  --code-bg:#EBF0EC;
+
+  /* de ene accentkleur van de site: bewust neutraal, zodat kleur
+     voorbehouden blijft aan het model. Aanpassen kan hier, op één plek. */
+  --accent:#18221F; --accent-soft:#E4E9E6;
+
+  /* de assen van het model */
+  --betekenis:#8A4F7D; --betekenis-soft:#F1E6EE;   /* waarden, principes */
+  --ends:#2C6A55;      --ends-soft:#E1EEE8;        /* visie, doel, concern */
+  --means:#2F6394;     --means-soft:#E2EAF3;       /* missie, maatregel, vermogen */
+  --invloeden:#9A5B12; --invloeden-soft:#F7ECDD;   /* driver, onzekerheid, risico */
+  --toetsing:#6B7772;  --toetsing-soft:#ECEFED;    /* controle, restrisico */
+
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#121816; --surface:#19211E; --ink:#E4EBE7; --muted:#9AA9A2; --line:#2D3935;
+    --code-bg:#1C2622;
+    --accent:#E4EBE7; --accent-soft:#23302B;
+    --betekenis:#D69BC8; --betekenis-soft:#2E2030;
+    --ends:#7CC4A6;      --ends-soft:#1F3129;
+    --means:#8DB8E3;     --means-soft:#1C2836;
+    --invloeden:#E0A864; --invloeden-soft:#33281A;
+    --toetsing:#A3B0AA;  --toetsing-soft:#232C29;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#121816; --surface:#19211E; --ink:#E4EBE7; --muted:#9AA9A2; --line:#2D3935;
+  --code-bg:#1C2622;
+  --accent:#E4EBE7; --accent-soft:#23302B;
+  --betekenis:#D69BC8; --betekenis-soft:#2E2030;
+  --ends:#7CC4A6;      --ends-soft:#1F3129;
+  --means:#8DB8E3;     --means-soft:#1C2836;
+  --invloeden:#E0A864; --invloeden-soft:#33281A;
+  --toetsing:#A3B0AA;  --toetsing-soft:#232C29;
+  color-scheme:dark;
+}
+
+/* ---------- basis ---------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.62 var(--body);padding-inline:16px}
+.wrap{max-width:1040px;margin:0 auto;padding-block:32px 80px}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+a:hover{text-decoration-thickness:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+code{font-family:var(--mono);font-size:.86em;background:var(--code-bg);padding:.1em .35em;border-radius:3px}
+sup{line-height:0}
+sup a{font:600 11px var(--mono);text-decoration:none;padding-inline:1px;color:var(--muted)}
+sup a:hover{color:var(--ink)}
+
+/* ---------- broodkruim en kop ---------- */
+.crumb{font:500 13px/1.4 var(--mono);color:var(--muted);padding-bottom:28px}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--ink);text-decoration:underline}
+.eyebrow{font:600 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+header.page{display:grid;gap:20px;padding-bottom:32px;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(34px,6vw,60px);font-weight:700;letter-spacing:-.025em;max-width:18ch}
+.lede{font-size:20px;line-height:1.55;max-width:62ch}
+
+/* paginakop: leesroute · functie · reikwijdte · status · bijgewerkt */
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0;padding:0;list-style:none;font:400 13px/1.4 var(--mono);color:var(--muted)}
+.meta li{display:flex;gap:6px}
+.meta b{font-weight:600;color:var(--ink)}
+
+/* ---------- inhoudsopgave ---------- */
+nav.toc{padding-block:24px;border-bottom:1px solid var(--line);display:grid;gap:12px}
+nav.toc > span{font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+nav.toc ol{list-style:none;margin:0;padding:0;columns:3 220px;column-gap:28px;font:400 14px/1.35 var(--display)}
+nav.toc li{break-inside:avoid}
+nav.toc a{display:grid;grid-template-columns:28px 1fr;padding:5px 6px;border-radius:4px;color:var(--muted);text-decoration:none}
+nav.toc a:hover{background:var(--accent-soft);color:var(--ink)}
+nav.toc a b{font:600 11px var(--mono);color:var(--muted);padding-top:2px}
+
+/* ---------- secties ---------- */
+section{padding-block:40px;border-bottom:1px solid var(--line);display:grid;gap:18px;scroll-margin-top:16px;min-width:0}
+.num{font:600 12px/1 var(--mono);color:var(--muted);letter-spacing:.06em}
+h2{font-size:clamp(24px,3.4vw,32px);font-weight:700;letter-spacing:-.01em}
+h3{font-size:19px;font-weight:700}
+section > p,.prose{max-width:66ch}
+.muted{color:var(--muted)}
+.small{font-size:15px}
+
+/* ---------- beweringen: feit · afgeleide · hypothese · interpretatie ----------
+   Verschil in vorm, niet in kleur: vol · omlijnd · gestippeld · dubbel omlijnd.
+   Feit, afgeleide en hypothese horen in de kennislaag (notes, Concept-hubs).
+   Interpretatie hoort in een view en noemt voor wie ze geldt (PLAN.md §4). */
+.claim{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:baseline;max-width:74ch;padding:10px 0;border-top:1px dashed var(--line)}
+.claim:first-of-type{border-top:0}
+.claim > p{grid-column:2}
+.claim > .kind{justify-self:start}
+.kind{font:600 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:4px 6px;border-radius:3px;white-space:nowrap;border:1px solid var(--ink);color:var(--ink)}
+.kind.feit{background:var(--ink);color:var(--surface)}
+.kind.afgeleide{background:transparent}
+.kind.hypothese{background:transparent;border-style:dashed;color:var(--muted);border-color:var(--muted)}
+/* interpretatie: alleen in een view (pagina van Publicatiehuis), met de belanghebbende erbij */
+.kind.interpretatie{background:transparent;border-style:double;border-width:3px;padding:2px 5px}
+.claim .voor{grid-column:2;font:400 13px/1.4 var(--mono);color:var(--muted)}
+.claim .test{grid-column:2;font-size:15px;color:var(--muted)}
+.claim .test b{color:var(--ink);font-weight:600}
+.claims{display:grid}
+
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.legend > div{display:grid;gap:8px;align-content:start;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+.legend p{font-size:15px}
+.legend .kind{justify-self:start}
+
+/* ---------- figuur (breed schema met eigen scroll) ---------- */
+figure{margin:0;display:grid;gap:10px;min-width:0}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+.scroll svg{display:block;width:100%;min-width:760px;height:auto}
+figcaption{font-size:15px;color:var(--muted);max-width:74ch}
+.hint{font:400 12px var(--mono);color:var(--muted)}
+@media (min-width:800px){.hint{display:none}}
+
+/* ---------- SVG-schema's: kleur per as ---------- */
+.dg text{font-family:var(--display);fill:var(--ink)}
+.dg .t{font-size:14.5px;font-weight:700}
+.dg .s{font-size:11.5px;fill:var(--muted);font-family:var(--body)}
+.dg .e{font-size:11px;fill:var(--muted);font-family:var(--mono);paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+.dg .frame-label{font-size:10.5px;font-family:var(--mono);letter-spacing:.1em;fill:var(--ends)}
+.dg rect.n{fill:var(--surface);stroke-width:1.6}
+.dg .as-bet   rect.n{stroke:var(--betekenis)} .dg .as-bet   rect.bar{fill:var(--betekenis)}
+.dg .as-ends  rect.n{stroke:var(--ends)}      .dg .as-ends  rect.bar{fill:var(--ends)}
+.dg .as-means rect.n{stroke:var(--means)}     .dg .as-means rect.bar{fill:var(--means)}
+.dg .as-inv   rect.n{stroke:var(--invloeden)} .dg .as-inv   rect.bar{fill:var(--invloeden)}
+.dg .as-toets rect.n{stroke:var(--toetsing);stroke-dasharray:5 3} .dg .as-toets rect.bar{fill:var(--toetsing)}
+.dg .frame{fill:none;stroke:var(--ends);stroke-dasharray:5 4;stroke-width:1.2}
+.dg .ln{fill:none;stroke:var(--muted);stroke-width:1.5}
+.dg .ln.loop{stroke:var(--toetsing);stroke-dasharray:6 4}
+.dg .ah{fill:var(--muted)}
+.dg .ah.loop{fill:var(--toetsing)}
+
+/* banden: een gebied dat bij één as hoort */
+.dg .band{stroke-width:1.2}
+.dg .band.as-bet{fill:var(--betekenis-soft);stroke:var(--betekenis)}
+.dg .band.as-inv{fill:var(--invloeden-soft);stroke:var(--invloeden)}
+.dg .band.vb{fill:var(--ground);stroke:var(--line);stroke-dasharray:5 4}
+.dg .bl{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em}
+.dg .bl.as-bet{fill:var(--betekenis)}
+.dg .bl.as-inv{fill:var(--invloeden)}
+.dg .bl.vb{fill:var(--muted)}
+.dg .vbt{font-family:var(--mono);font-size:12px;fill:var(--muted)}
+
+/* legenda onder een schema */
+.key{display:flex;flex-wrap:wrap;gap:8px 18px;font:400 13px/1.4 var(--mono);color:var(--muted)}
+.key span{display:inline-flex;align-items:center;gap:7px}
+.key i{width:14px;height:14px;border-radius:3px;border:2px solid currentColor;display:inline-block}
+.key .as-bet{color:var(--betekenis)} .key .as-ends{color:var(--ends)} .key .as-means{color:var(--means)}
+.key .as-inv{color:var(--invloeden)} .key .as-toets{color:var(--toetsing)}
+.key .as-toets i{border-style:dashed}
+
+/* ---------- kaarten (elementen) ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--line);border-radius:6px;padding:16px 18px;display:grid;gap:10px;align-content:start;min-width:0}
+.card.as-bet{border-top-color:var(--betekenis)} .card.as-ends{border-top-color:var(--ends)}
+.card.as-means{border-top-color:var(--means)}   .card.as-inv{border-top-color:var(--invloeden)}
+.card.as-toets{border-top-color:var(--toetsing);border-top-style:dashed}
+.card h3{font-size:18px}
+.card .en{font:400 12px var(--mono);color:var(--muted)}
+.card p{font-size:15.5px;line-height:1.55}
+.card .eg{font-size:14.5px;color:var(--muted)}
+.card .eg b{color:var(--ink);font-weight:600}
+.card .claim{padding:8px 0;grid-template-columns:1fr;gap:6px}
+.card .claim > p,.card .claim .test{grid-column:1}
+.card .claim .kind{justify-self:start}
+
+/* ---------- tabellen ---------- */
+.table{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font:600 11.5px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--ground)}
+td.k{font-family:var(--display);font-weight:700;white-space:nowrap}
+td .kind{font-size:9.5px;padding:3px 5px}
+@media (max-width:640px){table{font-size:14px} th,td{padding:8px 9px}}
+
+/* ---------- matrix 2×2 (SWOT/TOWS) ---------- */
+.matrix{display:grid;grid-template-columns:minmax(110px,auto) 1fr 1fr;gap:8px;max-width:900px}
+.matrix > div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:grid;gap:6px;align-content:start;font-size:15px;line-height:1.5}
+.matrix b{font-family:var(--display)}
+.matrix .h{background:none;border:0;padding:4px 2px;font:600 11.5px/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);align-self:end}
+.matrix .h.row{align-self:center}
+.matrix .wt{border-top:3px solid var(--invloeden)}   /* hier ontstaat risico */
+@media (max-width:640px){
+  .matrix{grid-template-columns:1fr}
+  .matrix .h:not(.row){display:none}
+}
+
+/* ---------- callout ---------- */
+.note{border-left:3px solid var(--accent);background:var(--surface);padding:14px 18px;border-radius:0 6px 6px 0;max-width:74ch;display:grid;gap:8px}
+.note b{font-family:var(--display)}
+
+/* ---------- referenties ---------- */
+ol.refs{margin:0;padding-left:0;list-style:none;display:grid;gap:10px;font-size:15px;line-height:1.5;max-width:80ch}
+ol.refs li{display:grid;grid-template-columns:44px 1fr;gap:8px;scroll-margin-top:16px}
+ol.refs li > span:first-child{font:600 12px/1.9 var(--mono);color:var(--muted)}
+ol.refs li:target{background:var(--accent-soft);border-radius:4px}
+ol.refs .use{color:var(--muted)}
+ol.refs a{word-break:break-word}
+
+/* ---------- voet ---------- */
+footer.page{padding-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font:400 13px/1.5 var(--mono);color:var(--muted)}
+footer.page a{color:var(--muted)}
+.ai-note{font:400 13px/1.5 var(--mono);color:var(--muted)}   /* vermelding bij door AI gegenereerde inhoud */
+
+@media (max-width:560px){
+  body{font-size:16.5px}
+  .lede{font-size:18px}
+  section{padding-block:32px}
+  .claim{grid-template-columns:1fr}
+  .claim > p,.claim .test,.claim .voor{grid-column:1}
+}
+@media print{
+  body{background:#fff;color:#000;padding:0}
+  .scroll{overflow:visible}
+  .scroll svg{min-width:0}
+  a{color:#000}
+}

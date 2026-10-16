@@ -1,0 +1,15 @@
+# Besturingssysteem en editors
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+*.tmp
+~$*
+
+# OneDrive-conflictkopieën
+*-LAPTOP-*.*
+*-DESKTOP-*.*
+
+# Python
+__pycache__/
+*.pyc

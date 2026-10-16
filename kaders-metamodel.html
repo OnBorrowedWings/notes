@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Van zorg tot bewijs — Publicatiehuis</title>
+<meta name="description" content="Concept-hub: hoe belanghebbende, concern, doel, risico, principe, maatregel, ADR, uitvoering, controle en restrisico samenhangen. Elke bewering met bron en label: feit, afgeleide of hypothese.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="wrap">
+
+<nav class="crumb" aria-label="Kruimelpad">Notes / Concept / Van zorg tot bewijs</nav>
+
+<header class="page">
+  <span class="eyebrow">Concept-hub</span>
+  <h1>Van zorg tot bewijs</h1>
+  <p class="lede">Hoe de elementen van een architectuurbeschrijving samenhangen. Het begint bij de zorg van een belanghebbende en loopt via risico en maatregel naar de controle die laat zien dat het werkt. Wat dan nog overblijft, is restrisico, en daarmee begint de cyclus opnieuw.</p>
+  <ul class="meta">
+    <li>Onderdeel <b>Concept</b></li>
+    <li>Functie <b>Concept-hub</b></li>
+    <li>Reikwijdte <b>algemeen, met voorbeelden voor een persoonlijke website</b></li>
+    <li>Status <b>concept</b></li>
+    <li>Bijgewerkt <b>16 oktober 2026</b></li>
+  </ul>
+</header>
+
+<nav class="toc" aria-label="Inhoud">
+  <span>Inhoud</span>
+  <ol>
+    <li><a href="#lezen"><b>01</b>Hoe je deze pagina leest</a></li>
+    <li><a href="#schema"><b>02</b>Het schema</a></li>
+    <li><a href="#elementen"><b>03</b>De elementen</a></li>
+    <li><a href="#relaties"><b>04</b>De relaties</a></li>
+    <li><a href="#inzichten"><b>05</b>Vier inzichten</a></li>
+    <li><a href="#richtingen"><b>06</b>Twee leesrichtingen</a></li>
+    <li><a href="#keten"><b>07</b>Een volledige keten</a></li>
+    <li><a href="#open"><b>08</b>Open hypothesen</a></li>
+    <li><a href="#referenties"><b>↓</b>Referenties</a></li>
+  </ol>
+</nav>
+
+<!-- 01 ================================================================ -->
+<section id="lezen">
+  <span class="num">01</span>
+  <h2>Hoe je deze pagina leest</h2>
+  <p>Elke bewering op deze pagina heeft een label en één of meer referenties. Wat de labels betekenen, waar ze horen en hoe normteksten worden weergegeven, staat in de note <a href="kaders-labels-voor-beweringen.html">Elke bewering zegt hoe zeker ze is</a>.</p>
+</section>
+
+<!-- 02 ================================================================ -->
+<section id="schema">
+  <span class="num">02</span>
+  <h2>Het schema</h2>
+  <p>Lees van boven naar beneden: van <em>waarom</em> naar <em>wat kan misgaan</em>, <em>wat ik eraan doe</em> en <em>hoe ik weet dat het werkt</em>. De grijze stippellijn sluit de cirkel.</p>
+
+  <div class="note">
+    <b>Onderdeel van een groter geheel</b>
+    <p>Dit schema is view B van het model in <a href="kaders-samenhang.html">Van betekenis tot bewijs</a>. Daar staan waarden, visie, missie, drivers en vermogens, en daar is risico verbreed tot onzekerheid met twee kanten: risico en kans.</p>
+  </div>
+
+  <figure>
+    <span class="hint">← veeg om het hele schema te zien →</span>
+    <div class="scroll">
+<svg class="dg" viewBox="0 0 960 720" role="img" aria-labelledby="dgT dgD">
+  <title id="dgT">Samenhang van architectuurelementen</title>
+  <desc id="dgD">Een belanghebbende heeft een concern; concerns zijn gegroepeerd in een thema. Een concern leidt tot een doel of eis. Een principe draagt bij aan het doel. Een risico raakt een bezit en bedreigt het doel. Een maatregel behandelt het risico en realiseert het doel; het principe stuurt de keuze van de maatregel. De maatregel wordt vastgelegd in een ADR, die wordt uitgevoerd in inrichting en werkwijze. Die uitvoering wordt getoetst door een controle. De controle levert restrisico, dat terugkeert als nieuw risico.</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="ahl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="ah loop" d="M0,0 L10,5 L0,10 z"/></marker>
+  </defs>
+
+  <!-- thema-kader -->
+  <rect class="frame" x="255" y="14" width="200" height="112" rx="8"/>
+  <text class="frame-label" x="267" y="34">THEMA · GROEPEERT</text>
+
+  <!-- lijnen (eerst, zodat knopen eroverheen liggen) -->
+  <path class="ln" d="M190,80 H266" marker-end="url(#ah)"/>
+  <path class="ln" d="M440,80 H516" marker-end="url(#ah)"/>
+  <path class="ln" d="M770,80 H694" marker-end="url(#ah)"/>
+  <path class="ln" d="M270,230 H194" marker-end="url(#ah)"/>
+  <path class="ln" d="M440,212 L552,114" marker-end="url(#ah)"/>
+  <path class="ln" d="M605,350 V114" marker-end="url(#ah)"/>
+  <path class="ln" d="M528,350 L442,264" marker-end="url(#ah)"/>
+  <path class="ln" d="M855,110 V380 H694" marker-end="url(#ah)"/>
+  <path class="ln" d="M605,410 V496" marker-end="url(#ah)"/>
+  <path class="ln" d="M690,530 H766" marker-end="url(#ah)"/>
+  <path class="ln" d="M855,560 V636" marker-end="url(#ah)"/>
+  <path class="ln" d="M770,670 H444" marker-end="url(#ah)"/>
+  <path class="ln loop" d="M355,640 V264" marker-end="url(#ahl)"/>
+
+  <!-- relatielabels -->
+  <text class="e" x="228" y="70" text-anchor="middle">heeft</text>
+  <text class="e" x="461" y="70">leidt tot</text>
+  <text class="e" x="732" y="70" text-anchor="middle">draagt bij</text>
+  <text class="e" x="232" y="220" text-anchor="middle">raakt</text>
+  <text class="e" x="500" y="176">bedreigt</text>
+  <text class="e" x="613" y="300">realiseert</text>
+  <text class="e" x="478" y="324" text-anchor="end">behandelt</text>
+  <text class="e" x="863" y="250">stuurt keuze</text>
+  <text class="e" x="613" y="458">vastgelegd in</text>
+  <text class="e" x="728" y="520" text-anchor="middle">uitgevoerd</text>
+  <text class="e" x="863" y="602">getoetst door</text>
+  <text class="e" x="605" y="660" text-anchor="middle">levert</text>
+  <text class="e" x="363" y="455">wordt nieuw risico</text>
+
+  <!-- knopen -->
+  <g class="as-ends"><rect class="n" x="20" y="50" width="170" height="60" rx="6"/><rect class="bar" x="20" y="50" width="5" height="60" rx="2"/>
+    <text class="t" x="36" y="76">Belanghebbende</text><text class="s" x="36" y="95">wie heeft er belang bij?</text></g>
+  <g class="as-ends"><rect class="n" x="270" y="50" width="170" height="60" rx="6"/><rect class="bar" x="270" y="50" width="5" height="60" rx="2"/>
+    <text class="t" x="286" y="76">Concern</text><text class="s" x="286" y="95">zorg of vraag</text></g>
+  <g class="as-ends"><rect class="n" x="520" y="50" width="170" height="60" rx="6"/><rect class="bar" x="520" y="50" width="5" height="60" rx="2"/>
+    <text class="t" x="536" y="76">Doel / eis</text><text class="s" x="536" y="95">wat moet waar zijn</text></g>
+  <g class="as-bet"><rect class="n" x="770" y="50" width="170" height="60" rx="6"/><rect class="bar" x="770" y="50" width="5" height="60" rx="2"/>
+    <text class="t" x="786" y="76">Principe</text><text class="s" x="786" y="95">algemene ontwerpregel</text></g>
+
+  <g class="as-inv"><rect class="n" x="20" y="200" width="170" height="60" rx="6"/><rect class="bar" x="20" y="200" width="5" height="60" rx="2"/>
+    <text class="t" x="36" y="226">Bezit</text><text class="s" x="36" y="245">wat beschermd wordt</text></g>
+  <g class="as-inv"><rect class="n" x="270" y="200" width="170" height="60" rx="6"/><rect class="bar" x="270" y="200" width="5" height="60" rx="2"/>
+    <text class="t" x="286" y="226">Risico</text><text class="s" x="286" y="245">kans × impact</text></g>
+
+  <g class="as-means"><rect class="n" x="520" y="350" width="170" height="60" rx="6"/><rect class="bar" x="520" y="350" width="5" height="60" rx="2"/>
+    <text class="t" x="536" y="376">Maatregel</text><text class="s" x="536" y="395">wat ik eraan doe</text></g>
+  <g class="as-means"><rect class="n" x="520" y="500" width="170" height="60" rx="6"/><rect class="bar" x="520" y="500" width="5" height="60" rx="2"/>
+    <text class="t" x="536" y="526">ADR</text><text class="s" x="536" y="545">keuze + afweging</text></g>
+  <g class="as-means"><rect class="n" x="770" y="500" width="170" height="60" rx="6"/><rect class="bar" x="770" y="500" width="5" height="60" rx="2"/>
+    <text class="t" x="786" y="526">Uitvoering</text><text class="s" x="786" y="545">inrichting en werkwijze</text></g>
+
+  <g class="as-toets"><rect class="n" x="770" y="640" width="170" height="60" rx="6"/><rect class="bar" x="770" y="640" width="5" height="60" rx="2"/>
+    <text class="t" x="786" y="666">Controle</text><text class="s" x="786" y="685">bewijs dat het werkt</text></g>
+  <g class="as-toets"><rect class="n" x="270" y="640" width="170" height="60" rx="6"/><rect class="bar" x="270" y="640" width="5" height="60" rx="2"/>
+    <text class="t" x="286" y="666">Restrisico</text><text class="s" x="286" y="685">wat overblijft</text></g>
+</svg>
+    </div>
+    <div class="key" aria-label="Legenda">
+      <span class="as-bet"><i></i>betekenis: principe</span>
+      <span class="as-ends"><i></i>ends: wie, welke zorg, welk doel</span>
+      <span class="as-inv"><i></i>invloeden: wat kan misgaan</span>
+      <span class="as-means"><i></i>means: wat ik doe</span>
+      <span class="as-toets"><i></i>toetsing: hoe ik het weet</span>
+    </div>
+    <figcaption>De volledige lijst relaties, met grondslag per relatie, staat in <a href="#relaties">§04</a>.</figcaption>
+  </figure>
+
+  <div class="claims">
+    <div class="claim"><span class="kind afgeleide">Afgeleide</span>
+      <p>Het schema voegt drie bronnen samen: de motivatie-elementen van ArchiMate<sup><a href="#r2">2</a></sup>, de manier waarop een whitepaper van The Open Group risico en beveiliging in ArchiMate modelleert<sup><a href="#r4">4</a></sup> en het risicobehandelingsproces van ISO 31000<sup><a href="#r5">5</a></sup>. Geen van deze bronnen tekent precies deze keten. De samenvoeging is van mij.</p></div>
+    <div class="claim"><span class="kind feit">Feit</span>
+      <p>ISO 42010 noemt belanghebbende, concern, viewpoint, view, architectuurbesluit en rationale als kernbegrippen van een architectuurbeschrijving.<sup><a href="#r1">1</a></sup></p></div>
+  </div>
+</section>
+
+<!-- 03 ================================================================ -->
+<section id="elementen">
+  <span class="num">03</span>
+  <h2>De elementen</h2>
+  <p>Elf elementen en één groepering. Per element: wat de bron zegt, wat ik ervan afleid, en hoe het er in Publicatiehuis uitziet.</p>
+
+  <div class="cards">
+
+    <article class="card as-ends" id="e-belanghebbende">
+      <h3>Belanghebbende</h3><span class="en">stakeholder</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>Een individu, team of organisatie (of een klasse daarvan) met een belang in het systeem.<sup><a href="#r1">1</a></sup></p></div>
+      <div class="claim"><span class="kind afgeleide">Afgeleide</span><p>Bij een systeem van één persoon zijn belanghebbenden vooral <em>rollen</em>. De toekomstige zelf is een aparte rol: die heeft geen herinnering aan wat de maker nu weet.<sup><a href="#r1">1</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> de schrijver, de beheerder, de toekomstige zelf, de lezer, AI als maker.</p>
+    </article>
+
+    <article class="card as-ends" id="e-thema">
+      <h3>Thema</h3><span class="en">groepering van concerns</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>In ISO 42010 legt een viewpoint vast welke concerns een view behandelt.<sup><a href="#r1">1</a></sup></p></div>
+      <div class="claim"><span class="kind afgeleide">Afgeleide</span><p>Een thema doet iets vergelijkbaars voor lezers: het bundelt verwante concerns tot één leesroute. Het is een ontwerpkeuze, geen normbegrip.<sup><a href="#r1">1</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> bij een persoonlijke website bijvoorbeeld schrijven, publiceren en bewaren.</p>
+    </article>
+
+    <article class="card as-ends" id="e-concern">
+      <h3>Concern</h3><span class="en">concern</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>Een belang dat een belanghebbende heeft in het systeem.<sup><a href="#r1">1</a></sup></p></div>
+      <div class="claim"><span class="kind afgeleide">Afgeleide</span><p>Formuleer een concern als vraag. Dan is te toetsen of de architectuur hem beantwoordt.<sup><a href="#r1">1</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> “Kan ik mijn werk terughalen na verlies van mijn laptop?”</p>
+    </article>
+
+    <article class="card as-ends" id="e-doel">
+      <h3>Doel / eis</h3><span class="en">goal · requirement</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>ArchiMate onderscheidt een <em>goal</em> (een beoogde richting of eindtoestand) van een <em>requirement</em> (een behoefte die een eigenschap van één specifiek systeem vastlegt).<sup><a href="#r2">2</a></sup></p></div>
+      <div class="claim"><span class="kind afgeleide">Afgeleide</span><p>Zonder doel is er geen risico, omdat ISO 31000 risico definieert ten opzichte van doelstellingen. Doelen mogen positief zijn: beter denken door te schrijven is een doel, geen risico.<sup><a href="#r5">5</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> binnen een dag weer werken op een nieuwe laptop, met volledige historie.</p>
+    </article>
+
+    <article class="card as-bet" id="e-principe">
+      <h3>Principe</h3><span class="en">principle</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>Een uitspraak over een algemene eigenschap die geldt voor elk systeem binnen een bepaalde context.<sup><a href="#r2">2</a></sup> TOGAF beschrijft een principe met naam, uitspraak, rationale en implicaties.<sup><a href="#r8">8</a></sup></p></div>
+      <div class="claim"><span class="kind afgeleide">Afgeleide</span><p>Een principe is ouder dan elk afzonderlijk risico. Het bepaalt welke maatregelen acceptabel zijn.<sup><a href="#r2">2</a> <a href="#r8">8</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> Single Source of Truth; Recoverability by Design.</p>
+    </article>
+
+    <article class="card as-inv" id="e-bezit">
+      <h3>Bezit</h3><span class="en">asset</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>In de risicowhitepaper van The Open Group kan vrijwel elk kernelement een bezit zijn: iets van waarde dat bescherming verdient.<sup><a href="#r4">4</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> bronbestanden, Git-historie, de domeinnaam, de lezerslijst, de notities in de kennislaag.</p>
+    </article>
+
+    <article class="card as-inv" id="e-risico">
+      <h3>Risico</h3><span class="en">risk</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>ISO 31000 definieert risico als het effect van onzekerheid op doelstellingen.<sup><a href="#r5">5</a></sup> De whitepaper modelleert risico als een soort <em>assessment</em>, een beoordeling.<sup><a href="#r4">4</a></sup> NIST beoordeelt risico als combinatie van waarschijnlijkheid en impact.<sup><a href="#r7">7</a></sup></p></div>
+      <div class="claim"><span class="kind afgeleide">Afgeleide</span><p>Een risico is een oordeel over een situatie, geen ding. Daarom hangt het altijd aan een doel en aan een bezit.<sup><a href="#r4">4</a> <a href="#r5">5</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> laptop gestolen; synchronisatie verwijdert bestanden.</p>
+    </article>
+
+    <article class="card as-means" id="e-maatregel">
+      <h3>Maatregel</h3><span class="en">risk treatment · control</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>ISO 31000 noemt zeven opties voor risicobehandeling: vermijden, risico nemen of vergroten om een kans te benutten, de bron wegnemen, de kans veranderen, het gevolg veranderen, delen, en bewust behouden.<sup><a href="#r5">5</a></sup> In de whitepaper is een beheersmaatregel een requirement.<sup><a href="#r4">4</a></sup></p></div>
+      <div class="claim"><span class="kind afgeleide">Afgeleide</span><p>Accepteren is ook een respons. Leg het dan wel vast, met de reden.<sup><a href="#r5">5</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> Git-repository op GitHub, plus OneDrive als tweede kopie van werk in uitvoering.</p>
+    </article>
+
+    <article class="card as-means" id="e-adr">
+      <h3>ADR</h3><span class="en">architecture decision record</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>Nygard stelt een kort document per belangrijk besluit voor, met context, besluit, status en gevolgen. Vervangen besluiten blijven bewaard.<sup><a href="#r9">9</a></sup> ISO 42010 vraagt architectuurbesluiten met hun rationale vast te leggen.<sup><a href="#r1">1</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> een besluit om OneDrive naast Git en GitHub te gebruiken.</p>
+    </article>
+
+    <article class="card as-means" id="e-uitvoering">
+      <h3>Uitvoering</h3><span class="en">implemented control</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>De whitepaper modelleert een uitgevoerde maatregel met de kernelementen die haar realiseren, zoals applicaties, processen en technologie.<sup><a href="#r4">4</a></sup></p></div>
+      <div class="claim"><span class="kind afgeleide">Afgeleide</span><p>Uitvoering heeft twee vormen: <em>inrichting</em> (hoe het staat) en <em>werkwijze</em> (wat iemand doet).<sup><a href="#r4">4</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> de rolverdeling OneDrive, Git en GitHub; de herstelroute op een nieuwe laptop.</p>
+    </article>
+
+    <article class="card as-toets" id="e-controle">
+      <h3>Controle</h3><span class="en">monitoring and review</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>ISO 31000 maakt monitoring en review tot een vast onderdeel van het risicoproces, in alle fasen.<sup><a href="#r5">5</a></sup></p></div>
+      <div class="claim"><span class="kind afgeleide">Afgeleide</span><p>Zonder controle is een maatregel alleen een bewering.<sup><a href="#r5">5</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> een hersteltest op een schone machine; de automatische linkcontrole vóór publicatie.</p>
+    </article>
+
+    <article class="card as-toets" id="e-restrisico">
+      <h3>Restrisico</h3><span class="en">residual risk</span>
+      <div class="claim"><span class="kind feit">Feit</span><p>Het risico dat overblijft na risicobehandeling.<sup><a href="#r6">6</a></sup></p></div>
+      <p class="eg"><b>Voorbeeld:</b> de bron staat veilig op GitHub, maar het account kan worden geblokkeerd.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- 04 ================================================================ -->
+<section id="relaties">
+  <span class="num">04</span>
+  <h2>De relaties</h2>
+  <p>Dezelfde pijlen als in het schema, als tabel. De kolom <em>Grondslag</em> zegt of een relatie uit een bron komt of uit mijn eigen redenering.</p>
+  <div class="table">
+    <table>
+      <thead><tr><th>Van</th><th>Relatie</th><th>Naar</th><th>Betekenis</th><th>Grondslag</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Belanghebbende</td><td>heeft</td><td class="k">Concern</td><td>Elke zorg is van iemand.</td><td><span class="kind feit">Feit</span> <sup><a href="#r1">1</a></sup></td></tr>
+        <tr><td class="k">Thema</td><td>groepeert</td><td class="k">Concern</td><td>Verwante zorgen vormen één leesroute.</td><td><span class="kind afgeleide">Afgel.</span> <sup><a href="#r1">1</a></sup></td></tr>
+        <tr><td class="k">Concern</td><td>leidt tot</td><td class="k">Doel / eis</td><td>Wat moet waar zijn om de zorg weg te nemen.</td><td><span class="kind afgeleide">Afgel.</span> <sup><a href="#r2">2</a></sup></td></tr>
+        <tr><td class="k">Principe</td><td>draagt bij aan</td><td class="k">Doel / eis</td><td>Een algemene regel helpt het doel bereiken.</td><td><span class="kind feit">Feit</span> <sup><a href="#r2">2</a></sup></td></tr>
+        <tr><td class="k">Risico</td><td>raakt</td><td class="k">Bezit</td><td>Een risico heeft een object.</td><td><span class="kind feit">Feit</span> <sup><a href="#r4">4</a></sup></td></tr>
+        <tr><td class="k">Risico</td><td>bedreigt</td><td class="k">Doel / eis</td><td>Risico bestaat alleen ten opzichte van een doel.</td><td><span class="kind feit">Feit</span> <sup><a href="#r5">5</a></sup></td></tr>
+        <tr><td class="k">Principe</td><td>stuurt keuze van</td><td class="k">Maatregel</td><td>Een maatregel die een principe schendt, valt af.</td><td><span class="kind afgeleide">Afgel.</span> <sup><a href="#r2">2</a> <a href="#r8">8</a></sup></td></tr>
+        <tr><td class="k">Maatregel</td><td>behandelt</td><td class="k">Risico</td><td>Vermijden, verminderen, delen of bewust accepteren.</td><td><span class="kind feit">Feit</span> <sup><a href="#r5">5</a></sup></td></tr>
+        <tr><td class="k">Maatregel</td><td>realiseert</td><td class="k">Doel / eis</td><td>De maatregel maakt het doel waar.</td><td><span class="kind feit">Feit</span> <sup><a href="#r4">4</a></sup></td></tr>
+        <tr><td class="k">Maatregel</td><td>vastgelegd in</td><td class="k">ADR</td><td>Alleen bij een belangrijke keuze met alternatieven.</td><td><span class="kind afgeleide">Afgel.</span> <sup><a href="#r9">9</a> <a href="#r1">1</a></sup></td></tr>
+        <tr><td class="k">ADR</td><td>uitgevoerd in</td><td class="k">Uitvoering</td><td>Het besluit krijgt een inrichting en een werkwijze.</td><td><span class="kind afgeleide">Afgel.</span> <sup><a href="#r4">4</a> <a href="#r9">9</a></sup></td></tr>
+        <tr><td class="k">Uitvoering</td><td>getoetst door</td><td class="k">Controle</td><td>Bewijs dat de maatregel werkt.</td><td><span class="kind feit">Feit</span> <sup><a href="#r5">5</a></sup></td></tr>
+        <tr><td class="k">Controle</td><td>levert</td><td class="k">Restrisico</td><td>Wat na behandeling overblijft, wordt zichtbaar.</td><td><span class="kind feit">Feit</span> <sup><a href="#r6">6</a></sup></td></tr>
+        <tr><td class="k">Restrisico</td><td>wordt</td><td class="k">Risico</td><td>De cyclus begint opnieuw.</td><td><span class="kind afgeleide">Afgel.</span> <sup><a href="#r5">5</a></sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 05 ================================================================ -->
+<section id="inzichten">
+  <span class="num">05</span>
+  <h2>Vier inzichten</h2>
+  <p>Vier punten waarop dit schema afwijkt van de intuïtieve volgorde: thema → zorg → risico → maatregel → principe.</p>
+  <div class="claims">
+    <div class="claim"><span class="kind afgeleide">Afgeleide</span>
+      <p><b>Het principe staat naast de keten, niet aan het eind.</b> Een principe is een algemene ontwerpregel die al geldt vóór een risico wordt beoordeeld. Het bepaalt welke maatregelen acceptabel zijn. Een betaalde backupdienst kan dataverlies verminderen en toch botsen met het principe dat het werk niet van één leverancier mag afhangen.<sup><a href="#r2">2</a> <a href="#r8">8</a></sup></p></div>
+    <div class="claim"><span class="kind afgeleide">Afgeleide</span>
+      <p><b>Niet elke zorg is een risico.</b> Risico is gedefinieerd ten opzichte van doelstellingen. Een model dat alleen vanuit risico's redeneert, kent alleen verliesvermijding. “Een directe relatie met lezers opbouwen” is een doel dat ontwerpkeuzes stuurt zonder dat er een dreiging aan voorafgaat.<sup><a href="#r5">5</a></sup></p></div>
+    <div class="claim"><span class="kind afgeleide">Afgeleide</span>
+      <p><b>Accepteren is een volwaardige respons.</b> ISO 31000 noemt bewust behouden als behandelingsoptie. Een risico zonder maatregel is dus niet per se een gat, zolang de acceptatie en de reden zijn vastgelegd.<sup><a href="#r5">5</a></sup></p></div>
+    <div class="claim"><span class="kind afgeleide">Afgeleide</span>
+      <p><b>De keten is een cyclus.</b> Monitoring en review horen bij elke fase, en elke behandeling laat restrisico achter. Het restrisico van de ene maatregel is het risico van de volgende ronde.<sup><a href="#r5">5</a> <a href="#r6">6</a></sup></p></div>
+  </div>
+</section>
+
+<!-- 06 ================================================================ -->
+<section id="richtingen">
+  <span class="num">06</span>
+  <h2>Twee leesrichtingen</h2>
+  <div class="claims">
+    <div class="claim"><span class="kind feit">Feit</span>
+      <p>ISO/IEC/IEEE 29148 vraagt dat eisen in twee richtingen traceerbaar zijn: terug naar hun herkomst en vooruit naar wat ze realiseert.<sup><a href="#r10">10</a></sup> ISO 42010 koppelt via de rationale besluiten aan concerns.<sup><a href="#r1">1</a></sup></p></div>
+    <div class="claim"><span class="kind afgeleide">Afgeleide</span>
+      <p><b>Van boven naar beneden</b> beantwoordt de vraag <em>waarom doe ik dit?</em> Volg vanaf een inrichting de pijlen terug naar het besluit, de maatregel, het risico en de zorg.<sup><a href="#r10">10</a></sup></p></div>
+    <div class="claim"><span class="kind afgeleide">Afgeleide</span>
+      <p><b>Van beneden naar boven</b> beantwoordt de vraag <em>wat gebeurt er als ik dit verander?</em> Haal ik OneDrive weg, welke risico's gaan dan weer open? Dat is impactanalyse, en die kan alleen als de koppelingen expliciet zijn vastgelegd.<sup><a href="#r10">10</a></sup></p></div>
+    <div class="claim"><span class="kind hypothese">Hypothese</span>
+      <p>Met een kort ID per element (CON-03, R-07, P11, ADR-010) kan de controle bij elke bouw gebroken koppelingen vinden, net zoals ze nu dode links vindt.</p>
+      <p class="test"><b>Toets:</b> zodra risico's en principes elk een kort ID hebben, de controle draaien en tellen hoeveel koppelingen ze vindt die met de hand gemist waren.</p></div>
+  </div>
+</section>
+
+<!-- 07 ================================================================ -->
+<section id="keten">
+  <span class="num">07</span>
+  <h2>Een volledige keten</h2>
+  <p>Eén keten als voorbeeld, uit het thema continuïteit, van zorg tot restrisico.</p>
+  <div class="table">
+    <table>
+      <thead><tr><th>Element</th><th>Voorbeeld</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Thema</td><td>Continuïteit</td></tr>
+        <tr><td class="k">Belanghebbende</td><td>De schrijver</td></tr>
+        <tr><td class="k">Concern</td><td>Kan ik mijn werk terughalen na verlies van mijn laptop?</td></tr>
+        <tr><td class="k">Doel / eis</td><td>Herstelbaar vanaf een andere kopie, zonder eerst iets te reconstrueren</td></tr>
+        <tr><td class="k">Bezit</td><td>Bronbestanden en Git-historie</td></tr>
+        <tr><td class="k">Risico</td><td>Laptop stuk of gestolen. Kans middel, impact hoog.</td></tr>
+        <tr><td class="k">Principes</td><td>Single Source of Truth; Recoverability by Design</td></tr>
+        <tr><td class="k">Maatregel</td><td>Repository op GitHub; OneDrive voor werk dat nog niet gepusht is</td></tr>
+        <tr><td class="k">ADR</td><td>OneDrive naast Git en GitHub</td></tr>
+        <tr><td class="k">Uitvoering</td><td>Rolverdeling en herstelroute: Git installeren, OneDrive koppelen, opnieuw clonen, niet-gecommit werk vergelijken</td></tr>
+        <tr><td class="k">Controle</td><td>Een periodieke hersteltest op een schone machine</td></tr>
+        <tr><td class="k">Restrisico</td><td>GitHub-account geblokkeerd. Kans laag, impact hoog.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">
+    <b>Wat deze keten laat zien</b>
+    <p>Het restrisico leidt naar een ander thema: een geblokkeerd account is een vraag van zeggenschap, niet alleen van continuïteit. Een keten blijft dus zelden binnen één thema.</p>
+  </div>
+</section>
+
+<!-- 08 ================================================================ -->
+<section id="open">
+  <span class="num">08</span>
+  <h2>Open hypothesen</h2>
+  <div class="claims">
+    <div class="claim"><span class="kind hypothese">Hypothese</span>
+      <p>ArchiMate 4 verandert de relaties tussen de motivatie-elementen niet wezenlijk. Bekend is alleen dat Constraint is vervallen.<sup><a href="#r3">3</a></sup></p>
+      <p class="test"><b>Toets:</b> het hoofdstuk over motivatie-elementen in de ArchiMate 4-specificatie naast §04 van deze pagina leggen.</p></div>
+    <div class="claim"><span class="kind hypothese">Hypothese</span>
+      <p>Voor één beheerder volstaan vier soorten vastlegging: doelen, risico's (met bezit, respons, maatregel en restrisico), principes en besluiten.</p>
+      <p class="test"><b>Toets:</b> bij het inrichten van een eigen systeem nagaan of er gegevens zijn die in geen van de vier passen.</p></div>
+  </div>
+</section>
+
+<!-- Referenties ======================================================== -->
+<section id="referenties">
+  <span class="num">↓</span>
+  <h2>Referenties</h2>
+  <p class="muted small">Normen en standaarden zijn waar mogelijk rechtstreeks geraadpleegd. Waar de primaire tekst niet vrij toegankelijk is, staat de gebruikte secundaire bron erbij. Geraadpleegd op 7 oktober 2026.</p>
+
+  <h3>Normen, standaarden en literatuur</h3>
+  <ol class="refs">
+    <li id="r1"><span>[1]</span><div>ISO/IEC/IEEE 42010:2022, <i>Software, systems and enterprise — Architecture description</i>. ISO, 2022. Secundair: <a href="https://quality.arc42.org/standards/iso-42010">arc42 Quality Model, samenvatting ISO 42010</a>. <span class="use">Gebruikt voor: belanghebbende, concern, viewpoint, view, besluit, rationale.</span></div></li>
+    <li id="r2"><span>[2]</span><div>The Open Group, <i>ArchiMate® 3.2 Specification</i>, 2022, hoofdstuk Motivation Elements. <a href="https://pubs.opengroup.org/architecture/archimate32-doc/">pubs.opengroup.org</a>. Secundair: <a href="https://archimate.visual-paradigm.com/comprehensive-guide-the-motivation-layer-in-archimate/">Visual Paradigm, The Motivation Layer in ArchiMate</a>. <span class="use">Gebruikt voor: goal, requirement, principle en hun relaties.</span></div></li>
+    <li id="r3"><span>[3]</span><div>The Open Group, <i>ArchiMate® 4 Specification</i>, 2026. <a href="https://www.opengroup.org/The-Open-Group-Announces-ArchiMate%C2%AE-4-Specification">Aankondiging</a>; wijzigingen: <a href="https://bizzdesign.com/blog/archimate-4-changes">Bizzdesign, ArchiMate 4 changes</a>. <span class="use">Gebruikt voor: Constraint vervallen; relaties nog te verifiëren.</span></div></li>
+    <li id="r4"><span>[4]</span><div>Band, I., Engelsman, W., Feltus, C., González Paredes, S., Hietala, J., Jonkers, H. &amp; Massart, S., <i>Modeling Enterprise Risk Management and Security with the ArchiMate® Language</i>. The Open Group, White Paper W150, januari 2015. <a href="https://pure.unamur.be/ws/files/12366722/Modeling_Enterprise_Risk_Management_and_Secutity_with_the_ArchiMate_Language.pdf">PDF</a>. <span class="use">Gebruikt voor: bezit, risico als assessment, beheersdoel als goal, beheersmaatregel als requirement, uitvoering door kernelementen.</span></div></li>
+    <li id="r5"><span>[5]</span><div>ISO 31000:2018, <i>Risk management — Guidelines</i>. ISO, 2018; §3.1 risico, §6.5.2 behandelingsopties, §6.6 monitoring en review. Secundair: <a href="https://open-exam-prep.com/study-guides/iso-31000-risk-manager/risk-treatment-monitoring-reporting/seven-risk-treatment-options">overzicht van de zeven behandelingsopties</a>. <span class="use">Gebruikt voor: definitie van risico, behandelingsopties, cyclus.</span></div></li>
+    <li id="r6"><span>[6]</span><div>ISO Guide 73:2009, <i>Risk management — Vocabulary</i>. ISO, 2009. Secundair: <a href="https://iadclexicon.org/residual-risk/">IADC Lexicon, residual risk</a>. <span class="use">Gebruikt voor: restrisico.</span></div></li>
+    <li id="r7"><span>[7]</span><div>NIST, <i>SP 800-30 Rev. 1, Guide for Conducting Risk Assessments</i>, 2012. <a href="https://csrc.nist.gov/pubs/sp/800/30/r1/final">csrc.nist.gov</a>. <span class="use">Gebruikt voor: risico als combinatie van waarschijnlijkheid en impact.</span></div></li>
+    <li id="r8"><span>[8]</span><div>The Open Group, <i>The TOGAF® Standard, 10th Edition</i>, 2022, Architecture Principles. <a href="https://pubs.opengroup.org/togaf-standard/">pubs.opengroup.org</a>. <span class="use">Gebruikt voor: principesjabloon (naam, uitspraak, rationale, implicaties).</span></div></li>
+    <li id="r9"><span>[9]</span><div>Nygard, M., <i>Documenting Architecture Decisions</i>, 15 november 2011. <a href="https://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions">cognitect.com</a>. <span class="use">Gebruikt voor: ADR-vorm, behoud van vervangen besluiten.</span></div></li>
+    <li id="r10"><span>[10]</span><div>ISO/IEC/IEEE 29148:2018, <i>Systems and software engineering — Life cycle processes — Requirements engineering</i>. ISO, 2018. Secundair: <a href="https://www.jamasoftware.com/requirements-management-guide/requirements-traceability/bidirectional-traceability/">Jama Software, Bidirectional Traceability</a>. <span class="use">Gebruikt voor: traceerbaarheid in twee richtingen.</span></div></li>
+  </ol>
+</section>
+
+<footer class="page">
+  <span>notes.erwhin.com</span>
+  <span><code>kaders-metamodel.html</code></span>
+</footer>
+<p class="ai-note">Deze tekst is gegenereerd met AI en nog niet door mij herschreven. Status: concept.</p>
+
+</div>
+</body>
+</html>
